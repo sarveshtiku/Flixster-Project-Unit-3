@@ -41,3 +41,16 @@ html, body {
   margin: 0 auto;
   padding: 0 1rem;
 }
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  /* gradient background: */
+  background-image: linear-gradient(
+    135deg,
+    #fafafa 0%,
+    #e8e8e8 100%
+  );
+}

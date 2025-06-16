@@ -78,7 +78,10 @@ export default function MovieList({
         <SortDropdown value={sortBy} onChange={setSortBy} />
         <button
           className="btn-now-playing"
-          onClick={onClear}
+          onClick={() => {
+            onClear()               // reset React state
+            window.location.reload() // then hard‐reload the page
+          }}
           disabled={mode === 'now_playing'}
         >
           Now Playing
