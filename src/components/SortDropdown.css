@@ -1,0 +1,13 @@
+/* src/components/SortDropdown.css */
+
+.sort-dropdown {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sort-dropdown select {
+  padding: 0.5rem;
+  font-size: 1rem;
+}

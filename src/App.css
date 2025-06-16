@@ -26,3 +26,32 @@
     flex-direction: column;
   }
 }
+/* reset or your global styles… */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* header just holds the site title */
+.App-header {
+  padding: 1rem;
+}
+
+/* new banner styling */
+.banner {
+  background-color: #ececec; /* light gray */
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* make sure footer sticks to bottom */
+.App-footer {
+  margin-top: auto;
+  padding: 1rem;
+  text-align: center;
+  background: #f5f5f5;
+}
