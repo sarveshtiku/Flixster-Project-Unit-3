@@ -55,3 +55,39 @@
   text-align: center;
   background: #f5f5f5;
 }
+
+.App-header .App-logo {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.App-header .App-logo:hover {
+  text-decoration: underline;
+}
+
+/* src/App.css */
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  background: #222;
+  color: #fff;
+  padding: 1rem;
+}
+
+.App-footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 1rem;
+  background: #f1f1f1;
+}

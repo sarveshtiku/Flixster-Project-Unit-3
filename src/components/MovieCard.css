@@ -76,3 +76,127 @@
   color: #555;
   margin-top: auto;   /
 }
+
+/* src/components/MovieCard.css */
+.movie-card {
+  position: relative;      /* so our heart can sit on top */
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform .2s ease;
+}
+.movie-card:hover {
+  transform: translateY(-4px);
+}
+
+.favorite-btn {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.movie-card__poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.movie-card__info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+  line-height: 1.2;
+}
+
+.movie-card__rating {
+  font-size: .875rem;
+  color: #555;
+  margin-top: auto;
+}
+
+/* src/components/MovieCard.css */
+
+.movie-card {
+  position: relative;    /* so our two buttons can live in the corners */
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform .2s ease;
+}
+.movie-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Watched toggle: top-left */
+.watched-btn {
+  position: absolute;
+  top: .5rem;
+  left: .5rem;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  opacity: .6;
+}
+.watched-btn.watched {
+  color: #3498db;
+  opacity: 1;
+}
+
+/* Favorite toggle: top-right */
+.favorite-btn {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: .6;
+}
+.favorite-btn:hover {
+  opacity: 1;
+}
+
+.movie-card__poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.movie-card__info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+  line-height: 1.2;
+}
+
+.movie-card__rating {
+  font-size: .875rem;
+  color: #555;
+  margin-top: auto;
+}
+

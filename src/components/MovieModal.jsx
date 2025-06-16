@@ -8,27 +8,35 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 
 export default function MovieModal({ movieId, onClose }) {
   const [details, setDetails] = useState(null);
+  const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchDetails() {
+    if (!movieId) return;
+
+    async function fetchAll() {
       setLoading(true);
       try {
-        const res = await fetch(
-          `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`
-        );
-        const data = await res.json();
-        setDetails(data);
+        const [dRes, vRes] = await Promise.all([
+          fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`),
+          fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`)
+        ]);
+        const dData = await dRes.json();
+        const vData = await vRes.json();
+        setDetails(dData);
+        setVideos(vData.results || []);
       } catch (err) {
-        console.error('Error fetching movie details:', err);
+        console.error('Error fetching movie details or videos:', err);
       } finally {
         setLoading(false);
       }
     }
-    fetchDetails();
+
+    fetchAll();
   }, [movieId]);
 
   if (!movieId) return null;
+
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div
@@ -47,10 +55,33 @@ export default function MovieModal({ movieId, onClose }) {
               src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
               alt={`${details.title} backdrop`}
             />
-            <p><strong>Release Date:</strong> {details.release_date}</p>
-            <p><strong>Runtime:</strong> {details.runtime} min</p>
-            <p><strong>Genres:</strong> {details.genres.map(g => g.name).join(', ')}</p>
+
+            <div className="modal-meta">
+              <p><strong>Release Date:</strong> {details.release_date}</p>
+              <p><strong>Runtime:</strong> {details.runtime} min</p>
+              <p><strong>Genres:</strong> {details.genres.map(g => g.name).join(', ')}</p>
+            </div>
+
             <p className="modal-overview"><strong>Overview:</strong> {details.overview}</p>
+
+            {/* trailer */}
+            {(() => {
+              const trailer = videos.find(
+                v => v.type === 'Trailer' && v.site === 'YouTube'
+              );
+              return trailer ? (
+                <div className="modal-trailer">
+                  <h3>Trailer</h3>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${trailer.key}`}
+                    title={`${details.title} Trailer`}
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              ) : null;
+            })()}
+
             <button className="modal-close-btn" onClick={onClose}>Close</button>
           </>
         )}
