@@ -104,6 +104,9 @@ Deployed Application (optional): [Flixster Deployed Site using Vercel](https://f
 
 `ADD_EMBEDDED_CODE_HERE`
 
+https://www.loom.com/share/84080737a56343449b6389facab6af2e?sid=f6a8cf7e-401d-4d04-a02c-986fb64cfe75
+
+
 ### Reflection
 
 * **Did the topics discussed in your labs prepare you to complete the assignment?**  
