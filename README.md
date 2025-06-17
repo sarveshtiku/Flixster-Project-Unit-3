@@ -100,12 +100,8 @@ Deployed Application (optional): [Flixster Deployed Site using Vercel](https://f
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
-
-https://www.loom.com/share/84080737a56343449b6389facab6af2e?sid=f6a8cf7e-401d-4d04-a02c-986fb64cfe75
-
+[Walkthrough Part 1](https://www.loom.com/share/84080737a56343449b6389facab6af2e?sid=f6a8cf7e-401d-4d04-a02c-986fb64cfe75)
+[Walkthrough Part 2](https://www.loom.com/share/bf1bfc317fbe4ac68c967777f71695ca?sid=7382196c-3aba-4dfe-b4e1-bd0e3236ba5a)
 
 ### Reflection
 
