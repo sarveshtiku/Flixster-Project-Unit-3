@@ -65,7 +65,7 @@ Deployed Application (optional): [Flixster Deployed Site using Vercel](https://f
 #### STRETCH FEATURES
 
 - [x] **Deployment**
-  - [x] Website is deployed via Render.
+  - [x] Website is deployed via Vercel
   - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough. 
 - [x] **Embedded Movie Trailers**
   - [x] Within the pop-up modal displaying a movie's details, the movie trailer is viewable.
