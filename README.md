@@ -4,7 +4,7 @@ Submitted by: **Sarvesh Tiku**
 
 Estimated time spent: **10** hours spent in total
 
-Deployed Application (optional): [Flixster Deployed Site](https://flixster-project-unit-3-kj3o-j5jt126nu-sarveshtikus-projects.vercel.app/)
+Deployed Application (optional): [Flixster Deployed Site using Vercel](https://flixster-project-unit-3-kj3o-j5jt126nu-sarveshtikus-projects.vercel.app/)
 
 ### Application Features
 
