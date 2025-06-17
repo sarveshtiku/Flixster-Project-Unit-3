@@ -100,7 +100,10 @@ Deployed Application (optional): [Flixster Deployed Site using Vercel](https://f
 
 ### Walkthrough Video
 
+* **PART 1**  
 [Walkthrough Part 1](https://www.loom.com/share/84080737a56343449b6389facab6af2e?sid=f6a8cf7e-401d-4d04-a02c-986fb64cfe75)
+
+* **PART 2**  
 [Walkthrough Part 2](https://www.loom.com/share/bf1bfc317fbe4ac68c967777f71695ca?sid=7382196c-3aba-4dfe-b4e1-bd0e3236ba5a)
 
 ### Reflection
