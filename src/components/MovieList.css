@@ -101,3 +101,11 @@
   padding: 2rem 1rem;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
+/* src/components/MovieList.css */
+.movie-list__grid {
+  display: grid;
+  /* auto-fill keeps empty columns, so a single card still spans the same fraction */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
