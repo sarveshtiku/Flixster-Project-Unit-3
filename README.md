@@ -4,7 +4,7 @@ Submitted by: **Sarvesh Tiku**
 
 Estimated time spent: **10** hours spent in total
 
-Deployed Application (optional): [Flixster Deployed Site using Renderl](https://flixster-project-unit-3.onrender.com/)
+Deployed Application (optional): [Flixster Deployed Site using Render](https://flixster-project-unit-3.onrender.com/)
 
 ### Application Features
 
@@ -101,10 +101,10 @@ Deployed Application (optional): [Flixster Deployed Site using Renderl](https://
 ### Walkthrough Video
 
 * **PART 1**  
-[Walkthrough Part 1](https://www.loom.com/share/84080737a56343449b6389facab6af2e?sid=f6a8cf7e-401d-4d04-a02c-986fb64cfe75)
+[Walkthrough Part 1](https://www.loom.com/share/949abe3d138046e4a0836f6349e24399?sid=ce151717-f9ff-4cd7-9758-00d77510932d)
 
 * **PART 2**  
-[Walkthrough Part 2](https://www.loom.com/share/bf1bfc317fbe4ac68c967777f71695ca?sid=7382196c-3aba-4dfe-b4e1-bd0e3236ba5a)
+[Walkthrough Part 2](https://www.loom.com/share/bf5eae3c64ba4ba2ac000257fb1618d8?sid=16b945d1-afeb-40d8-8b2a-a96308caf6c6)
 
 ### Reflection
 
