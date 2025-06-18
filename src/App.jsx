@@ -1,25 +1,29 @@
 // src/App.jsx
 import React, { useState } from 'react'
+import { FiMenu } from 'react-icons/fi'
 import Sidebar from './components/Sidebar'
 import MovieList from './components/MovieList'
 import './App.css'
 
 export default function App() {
-  // — which list we’re showing
-  const [mode, setMode] = useState('now_playing')
+  // — which view we’re showing: now_playing, search, favorites, or watched
+  const [view, setView] = useState('now_playing')
   const [searchTerm, setSearchTerm] = useState('')
 
-  // — favorites & watched as arrays of movie objects
+  // — saved lists
   const [favorites, setFavorites] = useState([])
   const [watched, setWatched]     = useState([])
 
+  // — sidebar open/close
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
   // — search handlers
   const handleSearch = q => {
-    setMode('search')
+    setView('search')
     setSearchTerm(q)
   }
   const handleClear = () => {
-    setMode('now_playing')
+    setView('now_playing')
     setSearchTerm('')
   }
 
@@ -43,20 +47,31 @@ export default function App() {
 
   return (
     <div className="app-layout">
-      <Sidebar favorites={favorites} watched={watched} />
+      {/* Slide-out sidebar */}
+      <Sidebar
+        open={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+        onNavigate={viewName => {
+          setView(viewName)
+          setSidebarOpen(false)
+        }}
+      />
 
       <div className="main-content">
         <header className="App-header">
-          <h1
-            className="App-logo"
-            onClick={handleClear}
+          <button
+            className="menu-btn"
+            onClick={() => setSidebarOpen(open => !open)}
           >
+            <FiMenu size={24} />
+          </button>
+          <h1 className="App-logo" onClick={handleClear}>
             Flixster
           </h1>
         </header>
 
         <MovieList
-          mode={mode}
+          mode={view}
           searchTerm={searchTerm}
           onSearch={handleSearch}
           onClear={handleClear}

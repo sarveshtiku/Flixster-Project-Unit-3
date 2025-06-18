@@ -7,18 +7,13 @@ import SortDropdown from './SortDropdown'
 import MovieModal from './MovieModal'
 import './MovieList.css'
 
-const API_KEY = import.meta.env.VITE_API_KEY
+const API_KEY  = import.meta.env.VITE_API_KEY
 const BASE_URL = 'https://api.themoviedb.org/3'
 
 export default function MovieList({
-  mode,
-  searchTerm,
-  onSearch,
-  onClear,
-  favorites,
-  watched,
-  onToggleFavorite,
-  onToggleWatched,
+  mode, searchTerm, onSearch, onClear,
+  favorites, watched,
+  onToggleFavorite, onToggleWatched,
 }) {
   const [movies, setMovies]       = useState([])
   const [page, setPage]           = useState(1)
@@ -26,42 +21,43 @@ export default function MovieList({
   const [selectedId, setSelected] = useState(null)
   const [sortBy, setSortBy]       = useState('title')
 
-  // fetch now_playing or search results
+  // only fetch if we’re in search/now_playing mode
   useEffect(() => {
-    async function fetchMovies() {
-      setLoading(true)
-      const path =
-        mode === 'now_playing'
-          ? `movie/now_playing?page=${page}`
-          : `search/movie?query=${encodeURIComponent(searchTerm)}&page=${page}`
+    if (mode !== 'now_playing' && mode !== 'search') return
 
-      try {
-        const res  = await fetch(
-          `${BASE_URL}/${path}&api_key=${API_KEY}&language=en-US`
-        )
-        const data = await res.json()
+    setLoading(true)
+    const path =
+      mode === 'now_playing'
+        ? `movie/now_playing?page=${page}`
+        : `search/movie?query=${encodeURIComponent(searchTerm)}&page=${page}`
+
+    fetch(`${BASE_URL}/${path}&api_key=${API_KEY}&language=en-US`)
+      .then(res => res.json())
+      .then(data =>
         setMovies(prev =>
           page === 1 ? data.results : [...prev, ...data.results]
         )
-      } catch (err) {
-        console.error(err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchMovies()
+      )
+      .catch(console.error)
+      .finally(() => setLoading(false))
   }, [mode, searchTerm, page])
 
-  // reset page + movies when mode or term changes
+  // reset when we switch between modes
   useEffect(() => {
     setPage(1)
     setMovies([])
   }, [mode, searchTerm])
 
-  // sort in place
+  // pick source array
+  const source = mode === 'favorites'
+    ? favorites
+    : mode === 'watched'
+    ? watched
+    : movies
+
+  // sort any list client-side
   const sorted = useMemo(() => {
-    return [...movies].sort((a, b) => {
+    return [...source].sort((a, b) => {
       if (sortBy === 'title') return a.title.localeCompare(b.title)
       if (sortBy === 'release_date')
         return new Date(b.release_date) - new Date(a.release_date)
@@ -69,7 +65,7 @@ export default function MovieList({
         return b.vote_average - a.vote_average
       return 0
     })
-  }, [movies, sortBy])
+  }, [source, sortBy])
 
   return (
     <main>
@@ -78,10 +74,7 @@ export default function MovieList({
         <SortDropdown value={sortBy} onChange={setSortBy} />
         <button
           className="btn-now-playing"
-          onClick={() => {
-            onClear()               // reset React state
-            window.location.reload() // then hard‐reload the page
-          }}
+          onClick={onClear}
           disabled={mode === 'now_playing'}
         >
           Now Playing
@@ -102,15 +95,17 @@ export default function MovieList({
         ))}
       </div>
 
-      <div className="load-more-container">
-        <button
-          className="load-more"
-          onClick={() => setPage(p => p + 1)}
-          disabled={loading}
-        >
-          {loading ? 'Loading…' : 'Load More'}
-        </button>
-      </div>
+      {mode === 'now_playing' || mode === 'search' ? (
+        <div className="load-more-container">
+          <button
+            className="load-more"
+            onClick={() => setPage(p => p + 1)}
+            disabled={loading}
+          >
+            {loading ? 'Loading…' : 'Load More'}
+          </button>
+        </div>
+      ) : null}
 
       {selectedId && (
         <MovieModal
@@ -123,7 +118,7 @@ export default function MovieList({
 }
 
 MovieList.propTypes = {
-  mode:              PropTypes.oneOf(['now_playing','search']).isRequired,
+  mode:              PropTypes.oneOf(['now_playing','search','favorites','watched']).isRequired,
   searchTerm:        PropTypes.string.isRequired,
   onSearch:          PropTypes.func.isRequired,
   onClear:           PropTypes.func.isRequired,

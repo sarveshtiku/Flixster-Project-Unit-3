@@ -83,7 +83,7 @@
   background: #222;
   color: #fff;
   padding: 1rem;
-}
+}a
 
 .App-footer {
   margin-top: auto;
@@ -91,3 +91,28 @@
   padding: 1rem;
   background: #f1f1f1;
 }
+
+/* src/App.css */
+.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Hamburger button */
+.menu-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+/* rest of your header/footer styles… */

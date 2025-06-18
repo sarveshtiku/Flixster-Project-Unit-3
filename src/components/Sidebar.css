@@ -1,51 +1,79 @@
 /* src/components/Sidebar.css */
-
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: -240px;
   width: 240px;
-  padding: 1rem;
+  height: 100%;
   background: #f8f8f8;
-  border-right: 1px solid #e0e0e0;
-  overflow-y: auto;
+  padding: 1rem;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+.sidebar.open {
+  left: 0;
+}
+.sidebar-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  float: right;
+  cursor: pointer;
+}
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+.sidebar__nav button {
+  background: none;
+  border: none;
+  padding: 0.5rem 0;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.sidebar__section {
-  margin-bottom: 2rem;
+.sidebar-overlay {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+.sidebar-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+/* src/components/Sidebar.css */
+/* make the nav‐item labels black */
+.sidebar__nav button {
+  color: #000;        /* changes text to black */
 }
 
-.sidebar__title {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 0.25rem;
+/* if you’re using <a> tags instead of buttons:
+.sidebar__nav a {
+  color: #000;
 }
-
-.sidebar__empty {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.sidebar__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.sidebar__item {
+*/
+/* src/App.css */
+/* center your “Flixster” title and pin the hamburger to the far left */
+.App-header {
+  position: relative;           /* allow absolute positioning inside */
   display: flex;
   align-items: center;
-  margin-bottom: 0.75rem;
+  justify-content: center;      /* center the H1 */
 }
 
-.sidebar__thumb {
-  width: 40px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-right: 0.5rem;
-}
-
-.sidebar__name {
-  font-size: 0.9rem;
-  line-height: 1.2;
-  color: #333;
+/* push the hamburger as far left as you like */
+.menu-btn {
+  position: absolute; 
+  left: 1rem;                   /* adjust this value (e.g. 0.5rem or 2rem) to taste */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
