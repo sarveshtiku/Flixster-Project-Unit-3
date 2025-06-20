@@ -2,7 +2,7 @@
 
 Submitted by: **Sarvesh Tiku**
 
-Estimated time spent: **10** hours spent in total
+Estimated time spent: **7** hours spent in total
 
 Deployed Application (optional): [Flixster Deployed Site using Render](https://flixster-project-unit-3.onrender.com/)
 
