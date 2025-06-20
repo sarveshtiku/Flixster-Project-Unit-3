@@ -6,6 +6,8 @@ Estimated time spent: **10** hours spent in total
 
 Deployed Application (optional): [Flixster Deployed Site using Render](https://flixster-project-unit-3.onrender.com/)
 
+<img width="1166" alt="Screenshot 2025-06-20 at 09 18 05" src="https://github.com/user-attachments/assets/876e3c9a-3ac2-4c09-bc92-9dd9549b9cd6" />
+
 ### Application Features
 
 #### REQUIRED FEATURES
